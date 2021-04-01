@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_chat_app/screens/getting_started_screen.dart';
 import 'package:flutter_chat_app/screens/home_screen.dart';
+import 'package:flutter_chat_app/screens/login_screen.dart';
+import 'package:flutter_chat_app/screens/signup_screen.dart';
 
 void main() {
   runApp(MyApp());
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_){
+  //
+  // });
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +23,12 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: GettingStartedScreen(),
+      routes: {
+        LoginScreen.routeName: (ctx) => LoginScreen(),
+        SignupScreen.routeName: (ctx) => SignupScreen(),
+        HomeScreen.routeName: (ctx) => HomeScreen(),
+      },
     );
   }
 }
